@@ -1,0 +1,28 @@
+entity Transaction {
+	ClientId String, 
+	TerminalId String, 
+	TranDateTime String,
+	Date LocalDate,
+	Time String,
+	TranAmount Double, 
+	TranFee Double,  
+	ReferenceNumber String,
+	ResponseStatus String,
+	ServiceName String,
+	User String
+}
+
+entity Terminal {
+    TerminalId String required unique,
+    MerchantId String,
+    MerchantName String,
+    MarketName String,
+    PhoneNo String,
+    SIMSerialNo String,
+    POSSerialNo String,
+    Location String,
+    User String
+}
+
+filter Terminal 
+filter Transaction 
