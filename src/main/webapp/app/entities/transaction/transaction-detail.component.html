@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transaction">
+            <h2><span jhiTranslate="pdashApp.transaction.detail.title">Transaction</span> {{ transaction.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pdashApp.transaction.clientId">Client Id</span></dt>
+                <dd>
+                    <span>{{ transaction.clientId }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.terminalId">Terminal Id</span></dt>
+                <dd>
+                    <span>{{ transaction.terminalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.tranDateTime">Tran Date Time</span></dt>
+                <dd>
+                    <span>{{ transaction.tranDateTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.date">Date</span></dt>
+                <dd>
+                    <span>{{ transaction.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.time">Time</span></dt>
+                <dd>
+                    <span>{{ transaction.time }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.tranAmount">Tran Amount</span></dt>
+                <dd>
+                    <span>{{ transaction.tranAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.tranFee">Tran Fee</span></dt>
+                <dd>
+                    <span>{{ transaction.tranFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.referenceNumber">Reference Number</span></dt>
+                <dd>
+                    <span>{{ transaction.referenceNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.responseStatus">Response Status</span></dt>
+                <dd>
+                    <span>{{ transaction.responseStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.serviceName">Service Name</span></dt>
+                <dd>
+                    <span>{{ transaction.serviceName }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.transaction.user">User</span></dt>
+                <dd>
+                    <span>{{ transaction.user }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transaction', transaction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

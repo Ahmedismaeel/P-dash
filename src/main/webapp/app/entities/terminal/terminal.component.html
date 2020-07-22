@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="pdashApp.terminal.home.title">Terminals</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-terminal" [routerLink]="['/terminal/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="pdashApp.terminal.home.createLabel">
+            Create a new Terminal
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="terminals?.length === 0">
+        <span jhiTranslate="pdashApp.terminal.home.notFound">No terminals found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="terminals && terminals.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.terminalId">Terminal Id</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.merchantId">Merchant Id</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.merchantName">Merchant Name</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.marketName">Market Name</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.phoneNo">Phone No</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.sIMSerialNo">S IM Serial No</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.pOSSerialNo">P OS Serial No</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.location">Location</span></th>
+                    <th scope="col" ><span jhiTranslate="pdashApp.terminal.user">User</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let terminal of terminals ;trackBy: trackId">
+                    <td><a [routerLink]="['/terminal', terminal.id, 'view']">{{ terminal.id }}</a></td>
+                    <td>{{ terminal.terminalId }}</td>
+                    <td>{{ terminal.merchantId }}</td>
+                    <td>{{ terminal.merchantName }}</td>
+                    <td>{{ terminal.marketName }}</td>
+                    <td>{{ terminal.phoneNo }}</td>
+                    <td>{{ terminal.sIMSerialNo }}</td>
+                    <td>{{ terminal.pOSSerialNo }}</td>
+                    <td>{{ terminal.location }}</td>
+                    <td>{{ terminal.user }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/terminal', terminal.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/terminal', terminal.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(terminal)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

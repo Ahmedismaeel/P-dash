@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="terminal">
+            <h2><span jhiTranslate="pdashApp.terminal.detail.title">Terminal</span> {{ terminal.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pdashApp.terminal.terminalId">Terminal Id</span></dt>
+                <dd>
+                    <span>{{ terminal.terminalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.merchantId">Merchant Id</span></dt>
+                <dd>
+                    <span>{{ terminal.merchantId }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.merchantName">Merchant Name</span></dt>
+                <dd>
+                    <span>{{ terminal.merchantName }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.marketName">Market Name</span></dt>
+                <dd>
+                    <span>{{ terminal.marketName }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.phoneNo">Phone No</span></dt>
+                <dd>
+                    <span>{{ terminal.phoneNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.sIMSerialNo">S IM Serial No</span></dt>
+                <dd>
+                    <span>{{ terminal.sIMSerialNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.pOSSerialNo">P OS Serial No</span></dt>
+                <dd>
+                    <span>{{ terminal.pOSSerialNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.location">Location</span></dt>
+                <dd>
+                    <span>{{ terminal.location }}</span>
+                </dd>
+                <dt><span jhiTranslate="pdashApp.terminal.user">User</span></dt>
+                <dd>
+                    <span>{{ terminal.user }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/terminal', terminal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
