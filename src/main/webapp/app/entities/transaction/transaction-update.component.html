@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transaction-heading" jhiTranslate="pdashApp.transaction.home.createOrEditLabel">Create or edit a Transaction</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.clientId" for="field_clientId">Client Id</label>
+                    <input type="text" class="form-control" name="clientId" id="field_clientId"
+                           formControlName="clientId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.terminalId" for="field_terminalId">Terminal Id</label>
+                    <input type="text" class="form-control" name="terminalId" id="field_terminalId"
+                           formControlName="terminalId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.tranDateTime" for="field_tranDateTime">Tran Date Time</label>
+                    <input type="text" class="form-control" name="tranDateTime" id="field_tranDateTime"
+                           formControlName="tranDateTime"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.time" for="field_time">Time</label>
+                    <input type="text" class="form-control" name="time" id="field_time"
+                           formControlName="time"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.tranAmount" for="field_tranAmount">Tran Amount</label>
+                    <input type="number" class="form-control" name="tranAmount" id="field_tranAmount"
+                           formControlName="tranAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.tranFee" for="field_tranFee">Tran Fee</label>
+                    <input type="number" class="form-control" name="tranFee" id="field_tranFee"
+                           formControlName="tranFee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.referenceNumber" for="field_referenceNumber">Reference Number</label>
+                    <input type="text" class="form-control" name="referenceNumber" id="field_referenceNumber"
+                           formControlName="referenceNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.responseStatus" for="field_responseStatus">Response Status</label>
+                    <input type="text" class="form-control" name="responseStatus" id="field_responseStatus"
+                           formControlName="responseStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.serviceName" for="field_serviceName">Service Name</label>
+                    <input type="text" class="form-control" name="serviceName" id="field_serviceName"
+                           formControlName="serviceName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pdashApp.transaction.user" for="field_user">User</label>
+                    <input type="text" class="form-control" name="user" id="field_user"
+                           formControlName="user"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

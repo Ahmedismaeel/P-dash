@@ -1,0 +1,30 @@
+{
+  "pdashApp": {
+    "terminal": {
+      "home": {
+        "title": "Terminals",
+        "createLabel": "Create a new Terminal",
+        "createOrEditLabel": "Create or edit a Terminal",
+        "notFound": "No Terminals found"
+      },
+      "created": "A new Terminal is created with identifier {{ param }}",
+      "updated": "A Terminal is updated with identifier {{ param }}",
+      "deleted": "A Terminal is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Terminal {{ id }}?"
+      },
+      "detail": {
+        "title": "Terminal"
+      },
+      "terminalId": "Terminal Id",
+      "merchantId": "Merchant Id",
+      "merchantName": "Merchant Name",
+      "marketName": "Market Name",
+      "phoneNo": "Phone No",
+      "sIMSerialNo": "S IM Serial No",
+      "pOSSerialNo": "P OS Serial No",
+      "location": "Location",
+      "user": "User"
+    }
+  }
+}
